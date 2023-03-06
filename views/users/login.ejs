@@ -1,0 +1,43 @@
+<% layout('layouts/boilerplate') %>
+
+    <div class="container d-flex justify-content-center align-items-center mt-5">
+        <div class="row flex-fill">
+            <div class="col-md-6 offset-md-3 col-xl-4 offset-xl-4">
+                <div class="card shadow">
+                    <img src="https://images.unsplash.com/photo-1606625058344-64612c845754?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8bG9nJTIwaW58ZW58MHx8MHx8&auto=format&fit=crop&w=400&q=30"
+                        class="card-img-top" alt="">
+                    <div class="card-body">
+                        <h5 class="card-title">log in</h5>
+                        <form action="/login" method="POST" class="needs-validation" novalidate>
+                            <div class="mb-3 has-validation">
+                                <label for="username" class="form-label">Username</label>
+                                <input type="text" class="form-control" name="username" id="username" autofocus
+                                    required>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                                <div class="invalid-feedback">
+                                    Please enter your username
+                                </div>
+                            </div>
+
+                            <div class="mb-3 has-validation">
+                                <label for="password" class="form-label">Password:</label>
+                                <input type="password" class="form-control" name="password" id="password" required>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                                <div class="invalid-feedback">
+                                    Please enter your password!
+                                </div>
+                            </div>
+
+                            <div class="d-grid gap-2">
+                                <button class="btn btn-success">log in</button>
+                            </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
