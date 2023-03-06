@@ -19,7 +19,7 @@ const userRoutes = require('./routes/users');
 const mongoSanitize = require('express-mongo-sanitize'); // this package help prevent any symbols like"$%.." in the query string, for security reason
 const helmet = require('helmet');//for security
 // const dbUrl = process.env.DB_URL;  
-const dbUrl = 'mongodb://127.0.0.1:27017/yelp-camp';
+const dbUrl = process.env.DB_URL || 'mongodb://127.0.0.1:27017/yelp-camp';
 const { join } = require('path');
 const app = express();
 const MongoStore = require('connect-mongo');// use Mongo for our session stor/ store session in our mongo database/ create a collection called session
@@ -59,10 +59,11 @@ store.on('error', function (e) {
     console.log('SESSION STORE ERROR', e)
 })
 
+const secret = process.env.SECRET || 'thisshouldbeabettersecret';
 const sessionConfig = {
     store, // it's the short way to say store: store, 
     name: "session", // the default name for this is connect.sid, for security reasons, we don't want to people to look for the name, we give it a 'fake' name. 
-    secret: 'thisshouldbeabettersecret',
+    secret,
     resave: false,
     saveUninitialized: true,
     cookie: {
